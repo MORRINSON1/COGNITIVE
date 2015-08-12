@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../layout/plantilla.xhtml">
+
+            <ui:define name="top">
+              
+            </ui:define>
+
+            <ui:define name="content">
+                <h2>Listado de Usuarios</h2>
+                <br/>
+                <h:form id="formRegistrarUsuario">
+                    <p:growl id="Mensaje_General" showDetail="true" sticky="false"></p:growl>
+                    <p:dataTable id="TablaUsuarios" value="#{usuarioManagedBean.listarDatos()}" 
+                        rows="20" paginator="true" var="item" selection="#{usuarioManagedBean.usuario}" 
+                        selectionMode="single" rowKey="#{item.codigoUsuario}" 
+                        filteredValue="#{usuarioManagedBean.listaFiltrada}">
+                        
+                        <p:ajax event="rowSelect" update=":formRegistrarUsuario:panelDetalleUsuario" 
+                                oncomplete="PF('dialogoDetalleUsuario').show()"></p:ajax>
+                        
+                        <f:facet name="header">Lista de usuarios</f:facet>
+                        <p:column headerText="CODIGO DEL USUARIO" filterBy="#{item.codigoUsuario}">
+                            <h:outputText value="#{item.codigoUsuario}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="NOMBRE" filterBy="#{item.nombre}">
+                            <h:outputText value="#{item.nombre}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="PRIMER APELLIDO" filterBy="#{item.primerApellido}">
+                            <h:outputText value="#{item.primerApellido}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="SEGUNDO APELLIDO" filterBy="#{item.segundoApellido}">
+                            <h:outputText value="#{item.segundoApellido}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="CORREO ELECTRONICO" filterBy="#{item.correoElectronico}">
+                            <h:outputText value="#{item.correoElectronico}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="SEXO" filterBy="#{item.sexo}">
+                            <h:outputText value="#{item.sexo}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="TELEFONO" filterBy="#{item.telefono}">
+                            <h:outputText value="#{item.telefono}"></h:outputText>
+                        </p:column>
+                    </p:dataTable>
+                    
+                    <p:dialog header="Detalle de Usuario" resizable="false" widgetVar="dialogoDetalleUsuario" modal="true">
+                        <h:panelGrid id="panelDetalleUsuario" columns="2">
+                            <p:outputLabel value="Codigo de Usuario"></p:outputLabel>
+                            <h:outputText value="#{usuarioManagedBean.usuario.codigoUsuario}"></h:outputText>
+                            <p:outputLabel value="Nombre"></p:outputLabel>
+                            <h:outputText value="#{usuarioManagedBean.usuario.nombre}"></h:outputText>
+                            <p:outputLabel value="Primer Apellido"></p:outputLabel>
+                            <h:outputText value="#{usuarioManagedBean.usuario.primerApellido}"></h:outputText>
+                            <p:outputLabel value="Segundo Apellido"></p:outputLabel>
+                            <h:outputText value="#{usuarioManagedBean.usuario.segundoApellido}"></h:outputText>
+                            <p:outputLabel value="Sexo"></p:outputLabel>
+                            <h:outputText value="#{usuarioManagedBean.usuario.sexo}"></h:outputText>
+                            <p:outputLabel value="Correo Electronico"></p:outputLabel>
+                            <h:outputText value="#{usuarioManagedBean.usuario.correoElectronico}"></h:outputText>
+                            <p:outputLabel value="Telefono"></p:outputLabel>
+                            <h:outputText value="#{usuarioManagedBean.usuario.telefono}"></h:outputText>
+                            <p:outputLabel value="Fecha de Nacimiento"></p:outputLabel>
+                            <h:outputText value="#{usuarioManagedBean.usuario.fechaNacimiento}"></h:outputText>
+                        </h:panelGrid>
+                    </p:dialog>
+                    
+                </h:form>
+            </ui:define>
+
+            <ui:define name="bottom">
+         
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

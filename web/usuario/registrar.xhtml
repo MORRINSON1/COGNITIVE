@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../layout/plantilla.xhtml">
+
+            <ui:define name="top"></ui:define>
+
+            <ui:define name="content">
+                <h2>Registro de Usuario</h2>
+                <hr/>
+                <h:form id="formRegistrarUsuario">
+                    <p:growl id="Mensaje_General" sticky="false" showDetail="true"></p:growl>
+                    <h:panelGrid columns="3">
+                        <p:outputLabel value="Nombre" for="txtNombre"></p:outputLabel>
+                        <p:inputText id="txtNombre" size="40" value="#{usuarioManagedBean.usuario.nombre}"  
+                        label="Nombre" required="true" requiredMessage="Campo Obligatorio"> 
+                        </p:inputText>
+                        <p:message for="txtNombre"></p:message>
+                        
+                        <p:outputLabel value="Primer Apellido" for="txtPrimerApellido"></p:outputLabel>
+                        <p:inputText id="txtPrimerApellido" size="40" value="#{usuarioManagedBean.usuario.primerApellido}" 
+                        label="Primer Apellido" required="true" requiredMessage="Campo Obligatorio" >  
+                        </p:inputText>
+                        <p:message for="txtPrimerApellido"></p:message>
+                        
+                        <p:outputLabel value="Segundo Apellido" for="txtSegundoApellido"></p:outputLabel>
+                        <p:inputText id="txtSegundoApellido" size="40" value="#{usuarioManagedBean.usuario.segundoApellido}" 
+                        label="Segundo Apellido" required="true" requiredMessage="Campo Obligatorio" >   
+                        </p:inputText>
+                        <p:message for="txtSegundoApellido"></p:message>
+                        
+                        <p:outputLabel value="Correo Electrónico" for="txtCorreoElectronico"></p:outputLabel>
+                        <p:inputText id="txtCorreoElectronico" size="40" value="#{usuarioManagedBean.usuario.correoElectronico}" 
+                        label="Correo Electrónico" required="true" requiredMessage="Campo Obligatorio" title="Ejemplo: example@gmail.com">
+                        <f:validator validatorId="validarEmail"></f:validator>
+                        </p:inputText>
+                        
+                        <h:panelGroup>
+                            <p:tooltip for="txtCorreoElectronico" showEvent="focus" hideEvent="blur"></p:tooltip>
+                            <p:message for="txtCorreoElectronico"></p:message>
+                        </h:panelGroup>
+                        
+                        <p:outputLabel value="Contraseña" for="txtContraseña"></p:outputLabel>
+                        <p:password feedback="true" size="40" id="txtContraseña" value="#{usuarioManagedBean.usuario.contrasenha}" 
+                        label="Contraseña" required="true" requiredMessage="Campo Obligatorio" >
+                        </p:password>
+                        <p:message for="txtContraseña"></p:message>
+                        
+                        <p:outputLabel value="Confirmar Contraseña" for="txtConfirmarContraseña"></p:outputLabel>
+                        <p:password size="40" id="txtConfirmarContraseña" value="#{usuarioManagedBean.usuario.txtConfirmarContraseña}" 
+                        label="Confirmar Contraseña"></p:password>
+                        <p:message for="txtConfirmarContraseña"></p:message>
+                        
+                        <p:outputLabel value="Fecha de Nacimiento" for="txtFechaNacimiento"></p:outputLabel>
+                        <p:calendar effect="fold" value="#{usuarioManagedBean.usuario.fechaNacimiento}" size="20" 
+                        label="Fecha de Nacimiento" id="txtFechaNacimiento" showOn="button" pattern="dd/mm/yyyy"
+                        title="Ejemplo: 29/12/1968"></p:calendar>
+                        <p:message for="txtFechaNacimiento"></p:message>
+ 
+                        <p:outputLabel value="Sexo" for="txtSexo"></p:outputLabel>
+                        <p:selectOneRadio id="txtSexo" value="#{usuarioManagedBean.usuario.sexo}">
+                            <f:selectItem itemLabel="Masculino" itemValue="M"></f:selectItem>
+                            <f:selectItem itemLabel="Femenino" itemValue="F"></f:selectItem>
+                        </p:selectOneRadio>
+                        <h:panelGroup></h:panelGroup>
+                        
+                        <p:outputLabel value="Telefono" for="txtTelefono"></p:outputLabel>
+                        <p:inputText id="txtTelefono" size="40" value="#{usuarioManagedBean.usuario.telefono}" 
+                        label="Telefono" required="true" requiredMessage="Campo Obligatorio" ></p:inputText>
+                        <p:message for="txtTelefono"></p:message>
+                        
+                        <h:panelGroup></h:panelGroup>
+                        <p:commandLink update="formRegistrarUsuario" value="Registro Usuario" 
+                        actionListener="#{usuarioManagedBean.mostrarDatos()}"></p:commandLink>
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+            
+            <ui:define name="bottom"></ui:define>
+ 
+        </ui:composition>
+
+    </body>
+</html>

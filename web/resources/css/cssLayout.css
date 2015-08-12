@@ -1,0 +1,30 @@
+
+
+#divInicioSesion{
+    position: fixed;
+    right: 10px;
+    top: 15px;
+}
+
+#divInicioSesion > span{
+    color: white;
+}
+
+#top {
+    left: 0px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.9);
+    height: 105px;
+    position: fixed;
+    background-color: #036fab;
+    width: 100%;
+    top: 0px;
+    z-index: 1000;
+}
+
+.center_content {
+    box-shadow: 0px 0px 2px black;
+    position: relative;
+    background-color: white;
+    padding: 5px;
+    margin-top: 110px;
+}

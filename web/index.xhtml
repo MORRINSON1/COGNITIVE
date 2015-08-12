@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<body>
+<ui:composition template="./layout/plantillaIndex.xhtml">
+
+<ui:define name="top"></ui:define>
+
+<ui:define name="content">
+    <h2>Inicio de sesión</h2>
+    <hr/>
+    <h:form id="formInicioSesion">
+    <p:growl showDetail="true" id="Mensaje_General" sticky="false"></p:growl>
+    <h:panelGrid columns="3">
+    <p:outputLabel for="txtCorreoElectronico" value="Correo Electrónico"></p:outputLabel>
+    <p:inputText requiredMessage="Se requiere un Correo Electrónico" required="true" 
+    id="txtCorreoElectronico" size="35" value="#{usuarioSessionManagedBean.correoElectronico}">
+    </p:inputText>
+    <h:panelGroup><p:message for="txtCorreoElectronico"></p:message></h:panelGroup>
+    <p:outputLabel value="Contraseña" for="txtContraseña"></p:outputLabel>
+    <p:password requiredMessage="Se requiere una contraseña" required="true" 
+    id="txtContraseña" size="35" value="#{usuarioSessionManagedBean.contraseña}">
+    </p:password>
+    <h:panelGroup><p:message for="txtContraseña"></p:message></h:panelGroup>
+    <p:commandButton update="formInicioSesion" value="Ingresar" 
+        action="#{usuarioSessionManagedBean.buscarUsuario()}"></p:commandButton>
+    </h:panelGrid>
+    </h:form>
+</ui:define>
+</ui:composition>
+</body>
+</html>
