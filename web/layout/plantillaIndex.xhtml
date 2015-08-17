@@ -20,11 +20,13 @@
             <h:form id="frmInicioSesion">
                 <div id="divInicioSesion">
                     <span>
-                        <b>Sesión iniciada por: </b><h:outputLabel value="#{usuarioSessionManagedBean.correoElectronico == null ? 'Anónimo' : usuarioSessionManagedBean.correoElectronico}">
+                        <b>Sesión iniciada por: </b><h:outputLabel 
+                            value="#{usuarioSessionManagedBean.correoElectronico == null ? 'Anónimo' : usuarioSessionManagedBean.correoElectronico}">
                         </h:outputLabel>
                     </span>
                     
-                    <p:commandButton update="frmInicioSesion" value="Cerrar sesión" action="#{usuarioSessionManagedBean.cerrarSesion()}"></p:commandButton>
+                    <p:commandButton update="frmInicioSesion" value="Cerrar sesión" 
+                    action="#{usuarioSessionManagedBean.cerrarSesion()}"></p:commandButton>
                 </div>
                 
             </h:form>

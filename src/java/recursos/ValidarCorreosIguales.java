@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Validar;
+package recursos;
 
-import Encriptar.EncriptarUsuario;
-import Pojo.Tusuario;
+import recursos.EncriptarUsuario;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
