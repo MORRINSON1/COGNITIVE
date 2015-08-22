@@ -9,7 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
@@ -47,8 +49,8 @@ public class Perfil implements Serializable{
     @Column (name = "sexo")
     private String sexo;
     
-    @JoinColumn
-    @OneToOne
+    
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Usuario usuario;
 
     public Perfil() {

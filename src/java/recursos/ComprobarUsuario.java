@@ -5,6 +5,8 @@
  */
 package recursos;
 
+import entities.Usuario;
+
 
 
 /**
@@ -13,19 +15,19 @@ package recursos;
  */
 public class ComprobarUsuario {
     
-    public static short contraseña(Tusuario usuario){
+    public static short contraseña(Usuario usuario){
         return ValidarContraseña.validarContraseña(usuario);
     }
     
-    public static void encryptar(Tusuario usuario){
-        usuario.setContrasenha(EncriptarUsuario.sha512(usuario.getContrasenha())); 
+    public static void encryptar(Usuario usuario){
+        usuario.setPassword(EncriptarUsuario.sha512(usuario.getPassword())); 
     }
     
-    public static boolean contraseñaInicioSesion(Tusuario usuario, String contraseña){
+    public static boolean contraseñaInicioSesion(Usuario usuario, String contraseña){
         return ValidarCorreosIguales.verificacion(usuario, contraseña);
     }
     
-    public static boolean camposVacios(Tusuario usuario){
+    public static boolean camposVacios(Usuario usuario){
         return ValidarCamposVacios.validate(usuario);
     }
 }

@@ -5,6 +5,8 @@
  */
 package recursos;
 
+import entities.Usuario;
+
 
 
 /**
@@ -13,15 +15,16 @@ package recursos;
  */
 public class ValidarContraseña {
     
-    public static short validarContraseña(Tusuario usuario){
+    public static short validarContraseña(Usuario usuario){
         
         System.out.println("Validando Contraseña...");
         
-        if(usuario.getContrasenha().equals(usuario.getTxtConfirmarContraseña())){
+     /*   if(usuario.getPassword().equals(usuario.getTxtConfirmarContraseña())){
             return 0;
         }else{
             return 1;
-        }
+        }*/
+        return 0;
     }
     
 }

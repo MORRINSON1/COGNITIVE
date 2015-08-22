@@ -6,8 +6,10 @@
 package entities;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -44,8 +46,8 @@ class Actividad implements Serializable{
     @Column (name = "nivel")
     private int nivel;
     
-    @JoinColumn
-    @OneToMany
+    
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER )
     private Modulo modulo;
 
     public Actividad() {

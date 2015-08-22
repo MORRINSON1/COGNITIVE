@@ -5,6 +5,7 @@
  */
 package recursos;
 
+import entities.Usuario;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -18,9 +19,9 @@ public class ValidarCamposVacios{
     
     private static boolean valor = true;
 
-    public static boolean validate(Tusuario usuario){
+    public static boolean validate(Usuario usuario){
         
-        System.out.println("Validando campos vacios...");
+       /* System.out.println("Validando campos vacios...");
         
         if(usuario.getNombre().trim().equals("")){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage
@@ -51,7 +52,7 @@ public class ValidarCamposVacios{
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage
         (FacesMessage.SEVERITY_ERROR, "Error", "Campo Teléfono es obligatorio"));
             valor = false;
-        }
+        }*/
         return valor;
     }
 } 

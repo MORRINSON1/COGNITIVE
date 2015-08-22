@@ -5,9 +5,10 @@
  */
 package recursos;
 
-import recursos.EncriptarUsuario;
+import entities.Usuario;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import recursos.EncriptarUsuario;
 
 /**
  *
@@ -16,14 +17,14 @@ import javax.faces.context.FacesContext;
 public class ValidarCorreosIguales {
     
     
-    public static boolean verificacion(Tusuario usuario, String contraseña){
+    public static boolean verificacion(Usuario usuario, String contraseña){
 
-            if(usuario.getContrasenha().equals(EncriptarUsuario.sha512(contraseña))){
+            if(usuario.getPassword().equals(EncriptarUsuario.sha512(contraseña))){
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Datos correctos:", "Inicio de sesión exitoso"));
                 return true;
             }else{
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error:", "Contraseña Incorrecta"));
-                usuario.setCorreoElectronico(null);
+           //     usuario.setCorreoElectronico(null);
                 return false;
             }
     }

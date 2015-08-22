@@ -6,11 +6,13 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -35,6 +37,10 @@ class Modulo implements Serializable{
     
     @Column (name = "icono")
     private String icono;
+    
+    
+    @OneToMany(mappedBy = "modulo")
+    private List<Interactua> interacciones;
 
     public Modulo() {
     }
